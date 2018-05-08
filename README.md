@@ -74,7 +74,9 @@ Tools and processes by which you measure and manage your IT systems.
 
   A reactive environment generates infrastructure-centric monitoring outputs: a host is down, a service is broken.
 
-![Reactive](https://raw.githubusercontent.com/vasuadari/monitoring/master/images/reactive.jpg)
+<p align="center">
+  <img alt="Reactive" src="https://raw.githubusercontent.com/vasuadari/monitoring/master/images/reactive.jpg">
+</p>
 
 It only serves a segment of our technology customer - generally only operational teams - doesn’t provide useful, application-centric data to developers. Non-operations staff are disconnected from the reality of the performance and availability of the infrastructure and applications being monitored.
 
@@ -86,7 +88,9 @@ We rely on metrics instead of fault detection checks..
 
 If a metric is measuring then the service is available. If it stops measuring then it’s likely the service is not available.
 
-![Proactive](https://raw.githubusercontent.com/vasuadari/monitoring/master/images/proactive.jpg)
+<p align="center">
+  <img alt="Proactive" width="387" height="437" src="https://raw.githubusercontent.com/vasuadari/monitoring/master/images/proactive.jpg">
+</p>
 
 ### Our new architecture is going to:
 
