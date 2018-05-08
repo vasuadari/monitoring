@@ -1,6 +1,6 @@
 # Monitoring
 
-Monitoring servers using Riemann, Graphite &amp; Grafana
+Monitoring servers using Riemann, Graphite &amp; Grafana.
 
 ## What is monitoring?
 
@@ -116,4 +116,6 @@ Our new push-centric architecture is going to be centered around collecting even
   * Metrics — Of all these data sources, we’ll rely most heavily on metrics to help us understand what’s going on in our environment.
 
 
+### References
 
+* ![Art of monitoring](https://artofmonitoring.com/)
