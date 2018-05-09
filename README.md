@@ -118,4 +118,6 @@ Our new push-centric architecture is going to be centered around collecting even
 
 ### References
 
-* ![Art of monitoring](https://artofmonitoring.com/)
+* ![Art of Monitoring](https://artofmonitoring.com/)
+
+* ![The Art of Monitoring code repository](https://github.com/turnbullpress/aom-code)
