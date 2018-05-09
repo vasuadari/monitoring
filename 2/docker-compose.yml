@@ -1,39 +1,18 @@
 version: "3.2"
 services:
-  riemann:
-    image: rlister/riemann
-    environment:
-      - GRAPHITE_HOST=graphite
-    volumes:
-      - './riemann:/app/etc'
-    ports:
-      - '5555:5555'
-      - '5555:5555/udp'
-      - '5556:5556'
-    links:
-      - graphite:graphite
-
-  graphite:
-    image: sitespeedio/graphite
-    volumes:
-      - './graphite/nginx/.htpasswd:/etc/nginx/.htpasswd'
-    ports:
-      - '8080:80'
-      - '2003:2003'
-
-  grafana:
-    image: grafana/grafana
-    links:
-      - 'graphite:graphite'
-    ports:
-      - '3000:3000'
-
   nginx:
     build: .
+    container_name: nginx
     volumes:
       - './nginx_status.conf:/etc/nginx/conf.d/nginx_status.conf'
       - './collectd:/etc/collectd'
-    links:
+    external_links:
       - 'riemann:riemann'
     ports:
-      - '80:80'
+      - '18080:80'
+    networks:
+      - monitoring_monitoring
+
+networks:
+  monitoring_monitoring:
+    external: true

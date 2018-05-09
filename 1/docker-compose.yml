@@ -1,41 +1,15 @@
 version: "3.2"
 services:
-  riemann:
-    image: rlister/riemann
-    container_name: riemann
-    environment:
-      - GRAPHITE_HOST=graphite
-    volumes:
-      - './riemann:/app/etc'
-    ports:
-      - '5555:5555'
-      - '5555:5555/udp'
-      - '5556:5556'
-    links:
-      - graphite:graphite
-
-  graphite:
-    image: sitespeedio/graphite
-    container_name: graphite
-    volumes:
-      - './graphite/nginx/.htpasswd:/etc/nginx/.htpasswd'
-    ports:
-      - '8080:80'
-      - '2003:2003'
-
-  grafana:
-    image: grafana/grafana
-    container_name: grafana
-    links:
-      - 'graphite:graphite'
-    ports:
-      - '80:3000'
-
   collectd:
     image: vasuadari/collectd
     container_name: collectd
     volumes:
       - './collectd:/etc/collectd'
-    links:
+    external_links:
       - 'riemann:riemann'
+    networks:
+      - monitoring_monitoring
 
+networks:
+  monitoring_monitoring:
+    external: true
